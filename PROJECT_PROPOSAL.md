@@ -11,7 +11,7 @@ Assignment (one PDF per team):
 
 ## Narrative
 
-Every May, Emory's dumpsters fill with usable mini-fridges, chairs, and lamps, and a few months later incoming students buy the same things new. SwoopSwap is a secondhand marketplace for Emory students only: accounts are verified through Emory email, so everyone buying or selling is a fellow student. Sellers list items for sale or for free, and buyers message them to arrange a pickup. Later epics add buyer and seller ratings, Atlanta-area sublets, and student-offered services.
+Every May, Emory's dumpsters fill with usable mini-fridges, chairs, and lamps, and a few months later incoming students buy the same things new. SwoopSwap is a secondhand marketplace for Emory students only: accounts are verified through Emory email, so everyone buying or selling is a fellow student. Sellers list and tag items for sale or for free, buyers can follow tags (like 'fridge' or 'textbooks') to get notified when something new is posted, and the two message each other to arrange a pickup. Later epics add buyer and seller ratings, Atlanta-area sublets, and student-offered services.
 
 **Sustainability.** Every resold item stays out of a landfill and replaces a new purchase, and the app will show an estimate of waste diverted so that impact is visible. Secondhand prices also lower move-in costs for students with less money. We also plan to keep the app lightweight so it uses few resources outside the busy move-in and move-out periods.
 
