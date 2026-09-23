@@ -80,23 +80,25 @@ If Sprint 2's measured velocity is below ~20 points, Sprint 8 is cut, and Sprint
 
 ## 4. Sprint 1 backlog
 
+Epics are SCRUM-5 (Foundation & DevOps) through SCRUM-14 (Quality & Release), one per roadmap epic.
+
 **Sprint goal:** A student with an `@emory.edu` address can sign up, create a profile, and see the (empty) home page on our production Vercel URL. Every PR runs CI and gets a preview deploy.
 
-| # | Type | Summary | Pts |
-| --- | --- | --- | --- |
-| 1 | Task | Repo setup: branch protection on `main`, PR template, CODEOWNERS, integrity header | 1 |
-| 2 | Task | Scaffold Next.js + TypeScript + Tailwind + ESLint/Prettier | 2 |
-| 3 | Task | Supabase project + local dev via Supabase CLI; `.env.example` | 2 |
-| 4 | Task | Link Vercel: preview per PR, production on `main`, env vars set | 2 |
-| 5 | Task | GitHub Actions CI: lint, typecheck, Vitest on every PR | 2 |
-| 6 | Story | As an Emory student, I can sign up with my @emory.edu email so that only students can use SwoopSwap | 5 |
-| 7 | Story | As a new user, I can set my display name and grad year so that other students know who they're dealing with | 3 |
-| 8 | Task | DB migration v1: `profiles`, `listings`, `tags`, `listing_tags` with RLS policies | 3 |
-| 9 | Story | As a visitor, I see a landing page and nav, and signed-out users are redirected away from app pages | 3 |
-| 10 | Task | Write Definition of Done, working agreement, and README setup guide | 1 |
-| 11 | Task | Paper prototypes / wireframes for create-listing and browse (input to Sprint 2) | 2 |
-| 12 | Spike | Time-boxed (2h): confirm Resend + Supabase email limits and the auth-hook approach | 1 |
-| | | **Total** | **27** |
+| # | Jira | Type | Summary | Pts |
+| --- | --- | --- | --- | --- |
+| 1 | SCRUM-15 | Task | Repo setup: branch protection on `main`, PR template, CODEOWNERS, integrity header | 1 |
+| 2 | SCRUM-16 | Task | Scaffold Next.js + TypeScript + Tailwind + ESLint/Prettier | 2 |
+| 3 | SCRUM-17 | Task | Supabase project + local dev via Supabase CLI; `.env.example` | 2 |
+| 4 | SCRUM-18 | Task | Link Vercel: preview per PR, production on `main`, env vars set | 2 |
+| 5 | SCRUM-19 | Task | GitHub Actions CI: lint, typecheck, Vitest on every PR | 2 |
+| 6 | SCRUM-20 | Story | As an Emory student, I can sign up with my @emory.edu email so that only students can use SwoopSwap | 5 |
+| 7 | SCRUM-21 | Story | As a new user, I can set my display name and grad year so that other students know who they're dealing with | 3 |
+| 8 | SCRUM-22 | Task | DB migration v1: `profiles`, `listings`, `tags`, `listing_tags` with RLS policies | 3 |
+| 9 | SCRUM-23 | Story | As a visitor, I see a landing page and nav, and signed-out users are redirected away from app pages | 3 |
+| 10 | SCRUM-24 | Task | Write Definition of Done, working agreement, and README setup guide | 1 |
+| 11 | SCRUM-25 | Task | Paper prototypes / wireframes for create-listing and browse (input to Sprint 2) | 2 |
+| 12 | SCRUM-26 | Spike | Time-boxed (2h): confirm Resend + Supabase email limits and the auth-hook approach | 1 |
+| | | | **Total** | **27** |
 
 **Acceptance criteria for the stories:**
 - **#6 Emory-only signup:** Given a `@emory.edu` address, I receive a sign-in link/code and am signed in after using it. Given any other domain, signup is rejected with a clear message, both in the form and server-side (the auth hook). A session persists across page refresh, and sign-out works.
@@ -122,8 +124,13 @@ A story is done when:
 | Meetup safety | Suggest public campus pickup spots on the listing; report-listing button in Sprint 6 |
 | Six people, one-week sprints, merge conflicts | Small PRs, feature-folder structure, and trunk-based development with short-lived branches |
 | Scope creep from sublets/services | These are explicitly the cut line (Sprint 8) |
+| A campus marketplace gets built in CS 370 almost every semester, so graders and Showcase visitors may see SwoopSwap as a repeat | Scout past projects in Sprint 1 and build the product and the demo around what they lacked (see below) |
+
+**Standing out from past marketplace teams.** Listings, search, and buyer–seller chat are the baseline that earlier teams have presumably all reached, so on their own they earn us little on sophistication or presentation. The first step is to find out what has actually been done. In Sprint 1, we ask the TAs on Canvas which past teams built a marketplace and look at their proposals, Showcase pages, and demos. We look at their product, never their code, since the integrity header says our code was written without consulting other students' work. The result is a short "what's been done" note in the repo that the PO can use for prioritization and that our pitch can answer directly.
+
+The plan already has features a generic buy/sell board doesn't, and we should treat them as the core of the product rather than as polish. Tag-follow alerts mean a buyer doesn't have to keep checking back, because the listing comes to them. The kg-diverted metric turns the sustainability grade into a number people see on the home page. Free listings are first-class, and signup is limited to verified `@emory.edu` addresses. The Showcase demo should open with these, not save them for the end. The scouting note should also inform the Sprint 8 choice: if past teams did sublets, services is the more distinctive pick, and vice versa. Finally, real usage beats a seeded demo. If the November recruiting push gets actual Emory students listing things, we can report real listings and real kg diverted at the Showcase, which a past team's screenshots can't match.
 
 **Open questions for the PO:**
-- Is it sublets or services in Sprint 8?
+- Is it sublets or services in Sprint 8? (Weigh this against what past teams built.)
 - Do we approach the Office of Sustainability for the weight estimates or a partnership?
 - Is the final deliverables date before or after the Dec 9 Showcase? (Confirm on Canvas.)
