@@ -1,0 +1,4 @@
+# Every PR auto-requests the whole team; any one approval satisfies branch protection.
+# Keep this a single rule: CODEOWNERS uses the LAST matching line, so a narrower rule
+# below would replace the team instead of adding to it.
+* @coralynnkc @chloepeyrebrune @dannyc7765 @rche273 @LeahLoukedis @sihaosimonz
