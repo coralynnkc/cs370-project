@@ -1,0 +1,7 @@
+# Every PR auto-requests the whole team; any one approval satisfies branch protection.
+* @coralynnkc @chloepeyrebrune @dannyc7765 @rche273 @LeahLoukedis @sihaosimonz
+
+# CI, deploy, and repo config: Scrum Master reviews so pipeline changes don't break everyone's PRs.
+/.github/ @coralynnkc
+/package.json @coralynnkc
+/package-lock.json @coralynnkc
