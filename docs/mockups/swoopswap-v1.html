@@ -1,0 +1,495 @@
+<title>SwoopSwap Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root {
+  --emory-blue: #012169;
+  --emory-blue-2: #0c2d83;
+  --gold: #f2a900;
+  --gold-soft: #fff3d1;
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-2: #eaeef7;
+  --ink: #0b1530;
+  --ink-2: #4a5470;
+  --line: #d7ddeb;
+  --accent: var(--emory-blue);
+  --on-accent: #ffffff;
+  --leaf: #1f7a4d;
+  --leaf-soft: #e3f3ea;
+  --danger: #b3261e;
+  --danger-soft: #fce8e6;
+  --shadow: 0 1px 2px rgba(1, 33, 105, .06), 0 6px 20px rgba(1, 33, 105, .07);
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #070d1f; --surface: #0f1832; --surface-2: #17224a; --ink: #eef1fa; --ink-2: #a3aecb;
+    --line: #26325a; --accent: #f2a900; --on-accent: #0b1530; --gold-soft: #3a2d06;
+    --leaf: #5fd39b; --leaf-soft: #0f2d20; --danger: #ff8a80; --danger-soft: #3b1311;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #070d1f; --surface: #0f1832; --surface-2: #17224a; --ink: #eef1fa; --ink-2: #a3aecb;
+  --line: #26325a; --accent: #f2a900; --on-accent: #0b1530; --gold-soft: #3a2d06;
+  --leaf: #5fd39b; --leaf-soft: #0f2d20; --danger: #ff8a80; --danger-soft: #3b1311;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 16px/1.5 var(--body); }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -.01em; }
+p { margin: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* ---------- mockup chrome ---------- */
+.mock-bar { background: var(--ink); color: var(--bg); padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; font-size: 13px; }
+:root[data-theme="dark"] .mock-bar { background: #000; color: #eef1fa; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mock-bar { background: #000; color: #eef1fa; } }
+.mock-bar strong { font-family: var(--mono); font-weight: 500; letter-spacing: .04em; text-transform: uppercase; font-size: 11px; opacity: .7; }
+.mock-tabs { display: flex; flex-wrap: wrap; gap: 4px; }
+.mock-tabs button { background: transparent; border: 1px solid rgba(255,255,255,.2); color: inherit; border-radius: 999px; padding: 4px 12px; font-size: 13px; }
+.mock-tabs button[aria-pressed="true"] { background: var(--gold); color: #0b1530; border-color: var(--gold); font-weight: 600; }
+.mock-note { margin-left: auto; font-family: var(--mono); font-size: 11px; opacity: .75; }
+
+/* ---------- app shell ---------- */
+.nav { background: var(--emory-blue); color: #fff; }
+.nav-inner { max-width: 1120px; margin: 0 auto; padding: 12px 16px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: -.02em; }
+.logo svg { width: 30px; height: 30px; }
+.logo span b { color: var(--gold); font-weight: 800; }
+.nav-search { flex: 1 1 220px; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.12); border-radius: 10px; padding: 8px 12px; min-width: 0; }
+.nav-search input { background: transparent; border: 0; outline: 0; color: #fff; width: 100%; }
+.nav-search input::placeholder { color: rgba(255,255,255,.7); }
+.nav-links { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.nav-links button { background: transparent; border: 0; color: #fff; padding: 8px 10px; border-radius: 8px; font-weight: 600; }
+.nav-links button:hover { background: rgba(255,255,255,.1); }
+.nav-links .btn-gold { background: var(--gold); color: #0b1530; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: #0b1530; display: grid; place-items: center; font-weight: 700; font-size: 14px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; }
+.screen { padding-block: 32px 64px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 10px; padding: 11px 18px; font-weight: 700; border: 1px solid transparent; }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { filter: brightness(1.12); }
+.btn-ghost { background: var(--surface); border-color: var(--line); color: var(--ink); }
+.btn-gold { background: var(--gold); color: #0b1530; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.label { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 600; font-size: 14px; }
+.field .hint { font-size: 13px; color: var(--ink-2); }
+.input { width: 100%; background: var(--surface); border: 1.5px solid var(--line); border-radius: 10px; padding: 11px 12px; }
+.input:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+.input.bad { border-color: var(--danger); }
+.err { color: var(--danger); font-size: 14px; font-weight: 600; }
+
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; font-weight: 600; color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.tag { font-family: var(--mono); font-size: 12px; color: var(--ink-2); background: var(--surface-2); padding: 2px 8px; border-radius: 6px; }
+
+/* ---------- landing ---------- */
+.hero { background: var(--emory-blue); color: #fff; overflow: hidden; position: relative; }
+.hero-inner { max-width: 1120px; margin: 0 auto; padding: 56px 16px 64px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(38px, 6vw, 68px); line-height: 1.02; font-weight: 800; letter-spacing: -.03em; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero p.lede { font-size: 19px; max-width: 34ch; opacity: .9; margin-top: 16px; }
+.hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.hero .fine { font-size: 14px; opacity: .75; margin-top: 12px; }
+.ticket { background: #fff; color: #0b1530; border-radius: 16px; padding: 20px; box-shadow: 0 20px 50px rgba(0,0,0,.25); transform: rotate(1.5deg); display: grid; gap: 14px; }
+.ticket .kg { font-family: var(--display); font-weight: 800; font-size: 64px; line-height: 1; color: var(--emory-blue); font-variant-numeric: tabular-nums; }
+.ticket .kg small { font-size: 22px; }
+.ticket .bar { height: 10px; background: #eaeef7; border-radius: 99px; overflow: hidden; }
+.ticket .bar i { display: block; height: 100%; width: 41%; background: var(--gold); }
+.ticket .row { display: flex; justify-content: space-between; font-size: 14px; color: #4a5470; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.step { padding: 20px; display: grid; gap: 8px; align-content: start; }
+.step .n { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+.step h3 { font-size: 20px; }
+.step p { color: var(--ink-2); }
+.why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+.why h3 { font-size: 17px; margin-bottom: 4px; }
+.why p { color: var(--ink-2); font-size: 15px; }
+
+/* ---------- auth ---------- */
+.auth { max-width: 440px; margin: 24px auto 0; padding: 28px; display: grid; gap: 18px; box-shadow: var(--shadow); }
+.auth h2 { font-size: 28px; }
+.auth .sub { color: var(--ink-2); }
+.code-inputs { display: flex; gap: 8px; }
+.code-inputs input { width: 100%; text-align: center; font-family: var(--mono); font-size: 22px; padding: 10px 0; }
+.ok-box { background: var(--leaf-soft); color: var(--leaf); border-radius: 10px; padding: 10px 12px; font-weight: 600; font-size: 14px; }
+
+/* ---------- browse ---------- */
+.browse { display: grid; grid-template-columns: 1fr 280px; gap: 24px; align-items: start; }
+.browse-head { display: flex; align-items: end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.browse-head h2 { font-size: 30px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.item { overflow: hidden; display: grid; text-align: left; padding: 0; transition: transform .15s, box-shadow .15s; }
+.item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.thumb { aspect-ratio: 4 / 3; display: grid; place-items: center; position: relative; max-width: 100%; }
+.thumb svg { width: 44%; height: auto; }
+.price-badge { position: absolute; left: 10px; top: 10px; background: var(--surface); color: var(--ink); font-weight: 700; padding: 3px 10px; border-radius: 8px; font-variant-numeric: tabular-nums; box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+.price-badge.free { background: var(--gold); color: #0b1530; }
+.item-body { padding: 12px 14px 14px; display: grid; gap: 6px; }
+.item-body h3 { font-family: var(--body); font-size: 16px; font-weight: 700; letter-spacing: 0; }
+.meta { font-size: 13px; color: var(--ink-2); display: flex; gap: 6px; flex-wrap: wrap; }
+.tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.side { display: grid; gap: 16px; position: sticky; top: 16px; }
+.impact { padding: 20px; background: var(--emory-blue); color: #fff; border: 0; display: grid; gap: 6px; }
+.impact .big { font-family: var(--display); font-weight: 800; font-size: 44px; line-height: 1; font-variant-numeric: tabular-nums; }
+.impact .big span { color: var(--gold); }
+.impact p { font-size: 14px; opacity: .85; }
+.follow { padding: 18px; display: grid; gap: 10px; }
+.follow-row { display: flex; align-items: center; justify-content: space-between; font-size: 14px; }
+.follow-row .tag { font-size: 13px; }
+.bell { background: var(--gold-soft); color: var(--ink); border: 0; border-radius: 8px; padding: 4px 8px; font-size: 13px; font-weight: 600; }
+.empty { padding: 48px 24px; text-align: center; display: grid; gap: 12px; justify-items: center; }
+.empty svg { width: 96px; }
+.empty p { color: var(--ink-2); max-width: 42ch; }
+.state-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-size: 13px; }
+.state-toggle button { border: 0; background: var(--surface); padding: 6px 10px; color: var(--ink-2); }
+.state-toggle button[aria-pressed="true"] { background: var(--surface-2); color: var(--ink); font-weight: 700; }
+
+/* ---------- detail ---------- */
+.detail { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: start; }
+.detail .thumb { border-radius: 14px; }
+.back { background: none; border: 0; color: var(--ink-2); font-weight: 600; padding: 0; margin-bottom: 16px; }
+.d-info { display: grid; gap: 16px; }
+.d-info h2 { font-size: 32px; }
+.d-price { font-family: var(--display); font-weight: 800; font-size: 34px; color: var(--accent); font-variant-numeric: tabular-nums; }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; font-size: 15px; }
+.kv dt { color: var(--ink-2); }
+.kv dd { margin: 0; font-weight: 600; }
+.seller { display: flex; gap: 12px; align-items: center; padding: 14px; }
+.seller .avatar { width: 44px; height: 44px; font-size: 17px; }
+.seller small { color: var(--ink-2); display: block; }
+.leaf-note { background: var(--leaf-soft); color: var(--leaf); border-radius: 10px; padding: 10px 14px; font-size: 14px; font-weight: 600; display: flex; gap: 8px; align-items: center; }
+.chat { padding: 0; overflow: hidden; }
+.chat-head { padding: 12px 14px; border-bottom: 1px solid var(--line); font-weight: 700; display: flex; justify-content: space-between; }
+.chat-body { padding: 14px; display: grid; gap: 8px; max-height: 260px; overflow-y: auto; }
+.msg { max-width: 80%; padding: 8px 12px; border-radius: 14px; font-size: 15px; }
+.msg.them { background: var(--surface-2); justify-self: start; border-bottom-left-radius: 4px; }
+.msg.me { background: var(--accent); color: var(--on-accent); justify-self: end; border-bottom-right-radius: 4px; }
+.chat-foot { display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--line); }
+.spots { display: flex; gap: 6px; flex-wrap: wrap; }
+.report { background: none; border: 0; color: var(--ink-2); font-size: 13px; text-decoration: underline; padding: 0; justify-self: start; }
+
+/* ---------- post ---------- */
+.post { display: grid; grid-template-columns: 1fr 300px; gap: 28px; align-items: start; }
+.post form { padding: 24px; display: grid; gap: 18px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.drop { border: 2px dashed var(--line); border-radius: 12px; padding: 24px; text-align: center; color: var(--ink-2); display: grid; gap: 4px; }
+.drop b { color: var(--ink); }
+.switch { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; }
+.switch input { width: 18px; height: 18px; accent-color: var(--gold); }
+.tag-input { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; border: 1.5px solid var(--line); border-radius: 10px; padding: 8px; background: var(--surface); }
+.tag-input input { border: 0; outline: 0; background: transparent; flex: 1; min-width: 100px; }
+.tag-input .tag button { background: none; border: 0; padding: 0 0 0 4px; color: inherit; }
+.preview-col { position: sticky; top: 16px; display: grid; gap: 10px; }
+
+.sprint-pill { display: inline-block; font-family: var(--mono); font-size: 11px; padding: 2px 8px; border-radius: 6px; background: var(--gold-soft); color: var(--ink); }
+
+@media (max-width: 860px) {
+  .hero-inner, .browse, .detail, .post { grid-template-columns: 1fr; }
+  .steps, .why { grid-template-columns: 1fr; }
+  .side, .preview-col { position: static; }
+  .ticket { transform: none; }
+  .mock-note { margin-left: 0; }
+}
+@media (max-width: 480px) {
+  .two { grid-template-columns: 1fr; }
+  .nav-search { order: 3; flex-basis: 100%; }
+}
+</style>
+
+<div class="mock-bar" role="navigation" aria-label="Mockup screens">
+  <strong>SwoopSwap v1 mockup</strong>
+  <div class="mock-tabs" id="tabs"></div>
+  <span class="mock-note" id="note"></span>
+</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#f2a900"/><path d="M7 19c4-1 7-4 9-9 1 4 4 7 9 8-4 1-7 2-9 6-2-3-5-4-9-5z" fill="#012169"/></svg>
+      <span>Swoop<b>Swap</b></span>
+    </div>
+    <label class="nav-search" id="navSearch" hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" placeholder="Search mini-fridge, desk lamp, ECON 101…" aria-label="Search listings"></label>
+    <nav class="nav-links" id="navLinks"></nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<script>
+const CATS = {
+  Appliances: { bg: "#dfe7fb", ink: "#012169", kg: 20, icon: '<rect x="18" y="6" width="28" height="52" rx="4" fill="currentColor"/><rect x="21" y="9" width="22" height="16" rx="2" fill="#fff" opacity=".35"/><rect x="38" y="30" width="3" height="10" rx="1.5" fill="#fff"/><rect x="38" y="13" width="3" height="7" rx="1.5" fill="#fff"/>' },
+  Furniture: { bg: "#fbeccc", ink: "#7a5200", kg: 7, icon: '<rect x="16" y="8" width="32" height="26" rx="4" fill="currentColor"/><rect x="12" y="32" width="40" height="8" rx="3" fill="currentColor"/><rect x="16" y="40" width="4" height="16" fill="currentColor"/><rect x="44" y="40" width="4" height="16" fill="currentColor"/>' },
+  Decor: { bg: "#e5f1e9", ink: "#1f7a4d", kg: 2, icon: '<path d="M20 8h24l-6 20H26z" fill="currentColor"/><rect x="30" y="28" width="4" height="22" fill="currentColor"/><rect x="20" y="50" width="24" height="5" rx="2" fill="currentColor"/>' },
+  Textbooks: { bg: "#efe6f7", ink: "#5b2a86", kg: 1.5, icon: '<rect x="12" y="12" width="18" height="42" rx="2" fill="currentColor"/><rect x="32" y="16" width="14" height="38" rx="2" fill="currentColor" opacity=".75"/><rect x="46" y="10" width="8" height="44" rx="2" fill="currentColor" opacity=".55" transform="rotate(8 50 32)"/>' },
+  Bikes: { bg: "#fde4e1", ink: "#a4332a", kg: 13, icon: '<circle cx="18" cy="40" r="11" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="46" cy="40" r="11" fill="none" stroke="currentColor" stroke-width="4"/><path d="M18 40l10-18h12l6 18M28 22l6 18h6" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>' },
+};
+const LISTINGS = [
+  { id: 1, title: "Galanz mini-fridge, 3.1 cu ft", cents: 4500, cat: "Appliances", cond: "Good", tags: ["fridge", "dorm"], until: "Dec 12", spot: "Raoul Hall lobby", seller: "Maya R.", year: 2027 },
+  { id: 2, title: "IKEA Poäng armchair", cents: 0, cat: "Furniture", cond: "Fair", tags: ["chair", "free"], until: "Dec 15", spot: "Clairmont Campus", seller: "Jordan T.", year: 2026 },
+  { id: 3, title: "ECON 101 Mankiw, 9th ed.", cents: 2000, cat: "Textbooks", cond: "Like new", tags: ["textbooks", "econ"], until: "Jan 10", spot: "Woodruff Library", seller: "Priya S.", year: 2028 },
+  { id: 4, title: "Warm-white desk lamp", cents: 800, cat: "Decor", cond: "Good", tags: ["lamp", "desk"], until: "Dec 12", spot: "Emory Student Center", seller: "Sam K.", year: 2027 },
+  { id: 5, title: "Trek FX 2 hybrid bike + lock", cents: 18000, cat: "Bikes", cond: "Good", tags: ["bike"], until: "Dec 20", spot: "Cox Hall bike racks", seller: "Alex W.", year: 2026 },
+  { id: 6, title: "Keurig K-Mini", cents: 0, cat: "Appliances", cond: "Good", tags: ["coffee", "free"], until: "Dec 14", spot: "Dobbs Hall", seller: "Chris L.", year: 2029 },
+  { id: 7, title: "Twin XL mattress topper", cents: 1500, cat: "Furniture", cond: "Like new", tags: ["bedding", "dorm"], until: "Dec 12", spot: "Longstreet-Means", seller: "Nia B.", year: 2028 },
+  { id: 8, title: "String lights + 2 photo clips sets", cents: 0, cat: "Decor", cond: "Good", tags: ["decor", "free"], until: "Dec 11", spot: "Emory Student Center", seller: "Eli P.", year: 2027 },
+];
+const fmt = c => c === 0 ? "Free" : "$" + (c / 100).toFixed(c % 100 ? 2 : 0);
+
+const state = { screen: "landing", signedIn: false, name: "", filter: "All", populated: true, current: 1, email: "", tags: ["fridge", "dorm"], msgs: [
+  { me: false, t: "Hi! Is the fridge still available?" }, { me: true, t: "Yes! I'm out Dec 12. Could you do pickup at Raoul lobby Thursday afternoon?" }, { me: false, t: "Thursday at 4 works 👍" } ] };
+
+const SCREENS = [
+  { id: "landing", label: "1 · Landing", sprint: "Sprint 1 · SCRUM-23", note: "Signed-out visitors. One screen that explains the app." },
+  { id: "signin", label: "2 · Sign in", sprint: "Sprint 1 · SCRUM-20", note: "Try a non-Emory address to see the rejection." },
+  { id: "profile", label: "3 · Profile", sprint: "Sprint 1 · SCRUM-21", note: "First sign-in only. Name 2–40 chars, year optional." },
+  { id: "browse", label: "4 · Browse", sprint: "Sprint 1 empty → Sprint 3", note: "Toggle the empty Sprint 1 state vs. populated." },
+  { id: "detail", label: "5 · Listing", sprint: "Sprints 2 + 4", note: "Messaging arrives in Sprint 4; pending/sold too." },
+  { id: "post", label: "6 · Post", sprint: "Sprint 2 · SCRUM-25", note: "Live preview on the right updates as you type." },
+];
+
+function go(screen) { state.screen = screen; render(); window.scrollTo({ top: 0 }); }
+function initials(n) { return (n || "Cora Y").split(/\s+/).map(s => s[0]).join("").slice(0, 2).toUpperCase(); }
+
+function thumb(l, big) {
+  const c = CATS[l.cat];
+  return `<div class="thumb" style="background:${c.bg};color:${c.ink}">
+    <svg viewBox="0 0 64 64" aria-hidden="true">${c.icon}</svg>
+    ${big ? "" : `<span class="price-badge ${l.cents === 0 ? "free" : ""}">${fmt(l.cents)}</span>`}
+  </div>`;
+}
+
+function renderNav() {
+  const links = document.getElementById("navLinks");
+  document.getElementById("navSearch").hidden = !state.signedIn;
+  if (!state.signedIn) {
+    links.innerHTML = `<button data-go="landing">How it works</button><button class="btn-gold" data-go="signin">Sign in</button>`;
+  } else {
+    links.innerHTML = `<button data-go="browse">Browse</button><button data-go="post">+ Post</button><span class="avatar" title="${state.name}">${initials(state.name)}</span>`;
+  }
+}
+
+const views = {
+  landing() {
+    return `<section class="hero"><div class="hero-inner">
+      <div>
+        <h1>Move-out week makes a <em>marketplace</em>, not a dumpster pile.</h1>
+        <p class="lede">Buy, sell, or give away dorm essentials with other verified Emory students. Follow a tag and the listing comes to you.</p>
+        <div class="ctas"><button class="btn btn-gold" data-go="signin">Sign in with @emory.edu</button><button class="btn btn-ghost" data-go="browse" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.35)">Peek at listings</button></div>
+        <p class="fine">Emory students only. No passwords; we email you a code.</p>
+      </div>
+      <div class="ticket" aria-label="Waste diverted this semester">
+        <span class="label" style="color:#4a5470">Kept out of the landfill · Fall 2026</span>
+        <div class="kg">412<small> kg</small></div>
+        <div class="bar"><i></i></div>
+        <div class="row"><span>41% of our 1,000 kg move-out goal</span></div>
+        <div class="row"><span>96 items passed along</span><span>31 given away free</span></div>
+      </div>
+    </div></section>
+    <div class="wrap">
+      <div class="steps">
+        <div class="card step"><span class="n">STEP 1</span><h3>List it in a minute</h3><p>Snap a photo, set a price or mark it free, and pick the day you move out.</p></div>
+        <div class="card step"><span class="n">STEP 2</span><h3>Follow a tag</h3><p>Follow <span class="tag">fridge</span> or <span class="tag">textbooks</span> and get an alert the moment one is posted.</p></div>
+        <div class="card step"><span class="n">STEP 3</span><h3>Message and meet on campus</h3><p>Chat in the app and pick up at a public spot like Woodruff Library or Cox Hall.</p></div>
+      </div>
+      <div class="why">
+        <div><h3>Only verified students</h3><p>Every account is tied to an @emory.edu address, so you know who you're meeting.</p></div>
+        <div><h3>Free is first-class</h3><p>Giving something away is one tap, and there's a Free filter for anyone moving in on a budget.</p></div>
+        <div><h3>See the impact</h3><p>Every sale adds an estimate of the kilograms kept out of the trash, on your profile and ours.</p></div>
+      </div>
+    </div>`;
+  },
+  signin() {
+    const s = state.signStep || "email";
+    if (s === "code") return `<div class="wrap screen"><div class="card auth">
+      <h2>Check your inbox</h2>
+      <p class="sub">We sent a 6-digit code to <b>${state.email}</b>. It expires in 10 minutes.</p>
+      <div class="code-inputs">${[0,1,2,3,4,5].map(i => `<input class="input" id="c${i}" maxlength="1" inputmode="numeric" aria-label="Digit ${i+1}" value="${"481920"[i]}">`).join("")}</div>
+      <button class="btn btn-primary" data-act="verify">Continue</button>
+      <button class="report" data-act="restart">Use a different email</button>
+    </div></div>`;
+    return `<div class="wrap screen"><form class="card auth" id="emailForm" novalidate>
+      <h2>Sign in to SwoopSwap</h2>
+      <p class="sub">Use your Emory email. New here? The same code creates your account.</p>
+      <div class="field"><label for="email">Emory email</label>
+        <input class="input" id="email" type="email" autocomplete="email" placeholder="netid@emory.edu" value="${state.email}">
+        <span class="err" id="emailErr" hidden>SwoopSwap is for Emory students. Use your @emory.edu address.</span>
+      </div>
+      <button class="btn btn-primary" type="submit">Email me a code</button>
+      <p class="hint" style="font-size:13px;color:var(--ink-2)">The server checks the domain too, so a modified request can't sign up a non-Emory address.</p>
+    </form></div>`;
+  },
+  profile() {
+    return `<div class="wrap screen"><form class="card auth" id="profileForm" novalidate>
+      <span class="sprint-pill">First sign-in</span>
+      <h2>What should people call you?</h2>
+      <p class="sub">Buyers and sellers see this next to your listings and messages.</p>
+      <div class="field"><label for="dname">Display name</label>
+        <input class="input" id="dname" maxlength="40" placeholder="e.g. Cora Y." value="${state.name || "Cora Y."}">
+        <span class="hint" id="nameHint">2–40 characters</span></div>
+      <div class="field"><label for="year">Graduation year <span style="font-weight:400;color:var(--ink-2)">(optional)</span></label>
+        <select class="input" id="year"><option value="">Prefer not to say</option>${[2026,2027,2028,2029,2030,2031].map(y => `<option ${y===2027?"selected":""}>${y}</option>`).join("")}</select></div>
+      <button class="btn btn-primary" type="submit" id="saveProfile">Save and start browsing</button>
+    </form></div>`;
+  },
+  browse() {
+    const cats = ["All", "Free", ...Object.keys(CATS)];
+    const q = (document.getElementById("q")?.value || "").toLowerCase();
+    let items = LISTINGS.filter(l => state.filter === "All" || (state.filter === "Free" ? l.cents === 0 : l.cat === state.filter));
+    if (q) items = items.filter(l => (l.title + " " + l.tags.join(" ")).toLowerCase().includes(q));
+    const grid = !state.populated
+      ? `<div class="card empty"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="var(--gold-soft)"/><path d="M14 38c7-2 12-7 16-16 2 7 7 12 16 14-7 2-12 4-16 11-4-5-9-7-16-9z" fill="var(--accent)"/></svg>
+          <h3>No listings yet, ${state.name || "Cora"}.</h3><p>You're early. Post the first thing you're done with, or follow a tag so you hear about new listings first.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><button class="btn btn-primary" data-go="post">Post a listing</button><button class="btn btn-ghost">Follow a tag</button></div></div>`
+      : items.length ? `<div class="grid">${items.map(l => `<button class="card item" data-open="${l.id}">${thumb(l)}
+          <div class="item-body"><h3>${l.title}</h3><div class="meta"><span>${l.cond}</span>·<span>until ${l.until}</span></div>
+          <div class="tags">${l.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div></div></button>`).join("")}</div>`
+      : `<div class="card empty"><h3>Nothing matches “${q}”</h3><p>Try a broader word, or follow it as a tag and we'll tell you when one shows up.</p></div>`;
+    return `<div class="wrap screen"><div class="browse"><div>
+      <div class="browse-head"><div><span class="label">Fall 2026 move-out</span><h2>Fresh on SwoopSwap</h2></div>
+        <div class="state-toggle" role="group" aria-label="Mockup data state"><button aria-pressed="${!state.populated}" data-state="empty">Sprint 1 (empty)</button><button aria-pressed="${state.populated}" data-state="full">With listings</button></div></div>
+      <div class="filters">${cats.map(c => `<button class="chip" aria-pressed="${state.filter === c}" data-filter="${c}">${c}</button>`).join("")}</div>
+      ${grid}
+    </div>
+    <aside class="side">
+      <div class="card impact"><span class="label" style="color:var(--gold)">Community impact</span><div class="big">412<span> kg</span></div><p>kept out of the landfill this semester, estimated from item weights by category.</p></div>
+      <div class="card follow"><span class="label">Tags you follow</span>
+        ${["fridge", "textbooks", "bike"].map((t, i) => `<div class="follow-row"><span class="tag">${t}</span><button class="bell">${["2 new", "Following", "1 new"][i]}</button></div>`).join("")}
+        <p style="font-size:13px;color:var(--ink-2)">You'll get an in-app alert and an email when a new listing matches.</p></div>
+    </aside></div></div>`;
+  },
+  detail() {
+    const l = LISTINGS.find(x => x.id === state.current);
+    const c = CATS[l.cat];
+    const spots = ["Woodruff Library", "Cox Hall", "Emory Student Center", l.spot].filter((v, i, a) => a.indexOf(v) === i);
+    return `<div class="wrap screen"><button class="back" data-go="browse">← Back to listings</button>
+    <div class="detail"><div style="display:grid;gap:16px">${thumb(l, true)}
+      <div class="card chat"><div class="chat-head"><span>Message ${l.seller}</span><span class="sprint-pill">Sprint 4</span></div>
+        <div class="chat-body" id="chatBody">${state.msgs.map(m => `<div class="msg ${m.me ? "me" : "them"}">${m.t}</div>`).join("")}</div>
+        <form class="chat-foot" id="chatForm"><input class="input" id="chatIn" placeholder="Write a message…" aria-label="Message"><button class="btn btn-primary" type="submit">Send</button></form></div>
+    </div>
+    <div class="d-info">
+      <div class="tags">${l.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      <h2>${l.title}</h2>
+      <div class="d-price">${fmt(l.cents)}</div>
+      <dl class="kv"><dt>Condition</dt><dd>${l.cond}</dd><dt>Category</dt><dd>${l.cat}</dd><dt>Available until</dt><dd>${l.until} (seller moves out)</dd><dt>Status</dt><dd>Active</dd></dl>
+      <div class="leaf-note"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 21c0-9 5-15 16-16-1 11-7 16-16 16zm0 0 8-8"/></svg>Buying this keeps about ${c.kg} kg out of the landfill.</div>
+      <div class="card seller"><span class="avatar">${initials(l.seller)}</span><div><b>${l.seller}</b><small>Class of ${l.year} · 3 items passed on · 29 kg diverted</small></div></div>
+      <div><span class="label">Suggested pickup spots</span><div class="spots" style="margin-top:8px">${spots.map(s => `<span class="chip">${s}</span>`).join("")}</div></div>
+      <button class="report">Report this listing</button>
+    </div></div></div>`;
+  },
+  post() {
+    return `<div class="wrap screen"><div class="post"><form class="card" id="postForm" novalidate>
+      <div><span class="label">New listing</span><h2 style="font-size:28px;margin-top:4px">What are you passing on?</h2></div>
+      <div class="drop"><b>Drop photos here or click to choose</b><span>Up to 6. We shrink them to WebP before upload, so they load fast and cost less to store.</span></div>
+      <div class="field"><label for="ptitle">Title</label><input class="input" id="ptitle" value="Galanz mini-fridge, 3.1 cu ft"></div>
+      <div class="two">
+        <div class="field"><label for="pprice">Price (USD)</label><input class="input" id="pprice" inputmode="decimal" value="45"></div>
+        <div class="field"><label for="pcat">Category</label><select class="input" id="pcat">${Object.keys(CATS).map(k => `<option ${k==="Appliances"?"selected":""}>${k}</option>`).join("")}</select></div>
+      </div>
+      <label class="switch"><input type="checkbox" id="pfree"> Give it away for free</label>
+      <div class="two">
+        <div class="field"><label for="pcond">Condition</label><select class="input" id="pcond"><option>Like new</option><option selected>Good</option><option>Fair</option></select></div>
+        <div class="field"><label for="puntil">Available until</label><input class="input" id="puntil" type="date" value="2026-12-12"></div>
+      </div>
+      <div class="field"><label for="ptag">Tags</label><div class="tag-input" id="tagBox">${state.tags.map(t => `<span class="tag">${t}<button type="button" data-untag="${t}" aria-label="Remove ${t}">×</button></span>`).join("")}<input id="ptag" placeholder="Add a tag and press Enter"></div>
+        <span class="hint">People following these tags get notified when you post.</span></div>
+      <div class="field"><label for="pdesc">Description</label><textarea class="input" id="pdesc" rows="3">Works perfectly, freezer compartment included. Moving out Dec 12.</textarea></div>
+      <button class="btn btn-primary" type="submit">Post listing</button>
+      <div class="ok-box" id="posted" hidden>Posted. 14 people following <b>fridge</b> will be notified.</div>
+    </form>
+    <div class="preview-col"><span class="label">Preview</span><div id="preview"></div></div></div></div>`;
+  },
+};
+
+function renderPreview() {
+  const box = document.getElementById("preview"); if (!box) return;
+  const free = document.getElementById("pfree").checked;
+  const price = Math.round(parseFloat(document.getElementById("pprice").value || "0") * 100) || 0;
+  document.getElementById("pprice").disabled = free;
+  const l = { title: document.getElementById("ptitle").value || "Untitled", cents: free ? 0 : price, cat: document.getElementById("pcat").value, cond: document.getElementById("pcond").value, tags: state.tags, until: new Date(document.getElementById("puntil").value + "T12:00").toLocaleDateString("en-US", { month: "short", day: "numeric" }) };
+  box.innerHTML = `<div class="card item">${thumb(l)}<div class="item-body"><h3>${l.title.replace(/</g, "&lt;")}</h3><div class="meta"><span>${l.cond}</span>·<span>until ${l.until}</span></div><div class="tags">${l.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div></div></div>
+    <div class="leaf-note">About ${CATS[l.cat].kg} kg kept out of the landfill when it sells.</div>`;
+}
+
+function render() {
+  const meta = SCREENS.find(s => s.id === state.screen);
+  document.getElementById("tabs").innerHTML = SCREENS.map(s => `<button aria-pressed="${s.id === state.screen}" data-go="${s.id}">${s.label}</button>`).join("");
+  document.getElementById("note").textContent = `${meta.sprint} · ${meta.note}`;
+  // Nav reflects where you are: app screens are signed-in, landing/sign-in/onboarding are not.
+  state.signedIn = ["browse", "detail", "post"].includes(state.screen);
+  if (state.signedIn && !state.name) state.name = "Cora Y.";
+  renderNav();
+  document.getElementById("app").innerHTML = views[state.screen]();
+  if (state.screen === "post") renderPreview();
+  const cb = document.getElementById("chatBody"); if (cb) cb.scrollTop = cb.scrollHeight;
+}
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-go],[data-open],[data-filter],[data-state],[data-act],[data-untag]");
+  if (!t) return;
+  if (t.dataset.go) { if (t.dataset.go === "signin") state.signStep = "email"; go(t.dataset.go); }
+  else if (t.dataset.open) { state.current = +t.dataset.open; go("detail"); }
+  else if (t.dataset.filter) { state.filter = t.dataset.filter; render(); }
+  else if (t.dataset.state) { state.populated = t.dataset.state === "full"; render(); }
+  else if (t.dataset.act === "verify") go("profile");
+  else if (t.dataset.act === "restart") { state.signStep = "email"; render(); }
+  else if (t.dataset.untag) { state.tags = state.tags.filter(x => x !== t.dataset.untag); render(); }
+});
+
+document.addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target;
+  if (f.id === "emailForm") {
+    const v = document.getElementById("email").value.trim().toLowerCase();
+    const ok = /^[^@\s]+@emory\.edu$/.test(v);
+    document.getElementById("emailErr").hidden = ok;
+    document.getElementById("email").classList.toggle("bad", !ok);
+    if (ok) { state.email = v; state.signStep = "code"; render(); }
+  } else if (f.id === "profileForm") {
+    const n = document.getElementById("dname").value.trim();
+    if (n.length < 2) { document.getElementById("nameHint").className = "err"; document.getElementById("nameHint").textContent = "Enter at least 2 characters."; return; }
+    state.name = n; state.populated = false; go("browse");
+  } else if (f.id === "chatForm") {
+    const inp = document.getElementById("chatIn"); if (!inp.value.trim()) return;
+    state.msgs.push({ me: true, t: inp.value.trim().replace(/</g, "&lt;") }); render();
+  } else if (f.id === "postForm") {
+    document.getElementById("posted").hidden = false;
+  }
+});
+
+document.addEventListener("input", e => {
+  if (e.target.id === "q") { document.getElementById("app").innerHTML = views.browse(); }
+  if (e.target.closest("#postForm")) renderPreview();
+  if (e.target.id === "email") { e.target.classList.remove("bad"); document.getElementById("emailErr").hidden = true; }
+});
+document.addEventListener("change", e => { if (e.target.closest("#postForm")) renderPreview(); });
+document.addEventListener("keydown", e => {
+  if (e.target.id === "ptag" && e.key === "Enter") {
+    e.preventDefault();
+    const v = e.target.value.trim().toLowerCase().replace(/[^a-z0-9-]/g, "");
+    if (v && !state.tags.includes(v)) state.tags.push(v);
+    render(); document.getElementById("ptag").focus();
+  }
+});
+
+render();
+</script>
